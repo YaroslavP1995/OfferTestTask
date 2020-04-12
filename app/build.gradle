@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    dataBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "com.example.offerwalltestapp"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        renderscriptTargetApi 19
+        renderscriptSupportModeEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //demoTestApi
+        buildConfigField "String", "API_ENDPOINT", '"https://demo0040494.mockable.io/api/v1/"'
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+        release {
+            lintOptions {
+                checkReleaseBuilds false
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+ext {
+    rxandroidVersion = '1.2.1'
+    rxjavaVersion = '1.3.8'
+    rxLoaderVersion = '0.1.4'
+    retrofitVersion = '2.5.0'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Default
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //ButterKnife
+    implementation "com.jakewharton:butterknife:10.2.0"
+    annotationProcessor "com.jakewharton:butterknife-compiler:10.2.0"
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
+
+    //Retrofit2
+    implementation "com.squareup.retrofit2:retrofit:2.7.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.7.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava:2.5.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+    //RxJava
+    implementation "io.reactivex:rxandroid:$rxandroidVersion"
+    implementation "io.reactivex:rxjava:$rxjavaVersion"
+    implementation "ru.arturvasilov:rx-loader:$rxLoaderVersion"
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.3'
+
+
+}
