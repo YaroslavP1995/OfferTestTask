@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name"> Offerwall Test App</string>
+    <string name="error">Something went wrong</string>
+    <string name="next">Next</string>
+</resources>

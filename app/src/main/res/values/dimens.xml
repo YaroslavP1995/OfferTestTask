@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="size_45dp">45dp</dimen>
+    <dimen name="size_25sp">25sp</dimen>
+</resources>
